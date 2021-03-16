@@ -1,5 +1,9 @@
 import React from 'react';
-import Layout from './components/Layout'
+// import Layout from './components/Layout'
+import Tags from './views/Tags'
+import Money from './views/Money'
+import Statistics from './views/Statistics'
+import NoMatch from './views/NoMatch'
 
 import {
   HashRouter as Router,
@@ -31,32 +35,7 @@ function App() {
     </Router >
   );
 }
-function NoMatch() {
-  return (
-    <div>页面不存在，地址错误</div>
-  )
-}
-function Statistics() {
-  return (
-    <Layout>
-      <h2>统计页面</h2>
-    </Layout>
-  );
-}
 
-function Tags() {
-  return (
-    <Layout>
-      <h2>标签页面</h2>
-    </Layout>
-  );
-}
 
-function Money() {
-  return (
-    <Layout>
-      <h2>记账页面</h2>
-    </Layout>
-  );
-}
+
 export default App;
