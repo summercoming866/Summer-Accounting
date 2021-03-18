@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-const CategorySection = styled.section
+import {useState} from 'react'
+const Wrapper = styled.section
     `
 font-size:24px;
 >ul{
@@ -22,6 +23,28 @@ font-size:24px;
         }
     }
 }
-
 `
-export default CategorySection 
+// type Props = {
+//     value: '-' | '+',
+//     onChange: (value: '-' | '+') => void;
+//   }
+  
+  const CategorySection: React.FC= (props) => {
+    const categoryMap = {'-': '支出', '+': '收入'};
+    const [categoryList] = useState<('+' | '-')[]>(['-', '+']);
+    const [category,setCategory] = useState('-')
+    return (
+      <Wrapper>
+        <ul>
+          {categoryList.map(c =>
+            <li key={c}
+                className={category === c ? 'selected' : ''}
+                onClick={() => {setCategory(c);}}
+            >{categoryMap[c]}
+            </li>
+          )}
+        </ul>
+      </Wrapper>
+    );
+  };
+export default CategorySection

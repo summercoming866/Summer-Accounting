@@ -6,35 +6,17 @@ import NotesSection from './Money/NotesSection'
 import NumberPadSection from './Money/NumberPadSection'
 import CategorySection from './Money/CategorySection'
 
-const MyLayout=styled(Layout)`
+const MyLayout = styled(Layout)`
     display:flex;
     flex-direction:column;
 `
 function Money() {
     return (
         <MyLayout>
-            <TagSection>
-                <ol>
-                    <li>衣</li>
-                    <li>食</li>
-                    <li>住</li>
-                    <li>行</li>
-                </ol>
-                <button>新增标签</button>
-            </TagSection>
-            <NotesSection>
-                <label>
-                    <span>备注</span>
-                    <input type="text" placeholder="在这里添加备注" />
-                </label>
-
-            </NotesSection>
-            <CategorySection>
-                <ul>
-                    <li className="selected">支出</li>
-                    <li>收入</li>
-                </ul>
-            </CategorySection>
+            <TagSection/>
+            <NotesSection/>
+            <CategorySection/>
+                
             <NumberPadSection>
                 <div className="output">100</div>
                 <div className="pad clearfix">
