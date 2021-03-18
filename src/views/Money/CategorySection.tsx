@@ -24,22 +24,23 @@ font-size:24px;
     }
 }
 `
-// type Props = {
-//     value: '-' | '+',
-//     onChange: (value: '-' | '+') => void;
-//   }
+type Props = {
+    value: '-' | '+',
+    onChange: (value: '-' | '+') => void;
+  }
   
-  const CategorySection: React.FC= (props) => {
+  const CategorySection: React.FC<Props>= (props) => {
     const categoryMap = {'-': '支出', '+': '收入'};
     const [categoryList] = useState<('+' | '-')[]>(['-', '+']);
-    const [category,setCategory] = useState('-')
+    // const [category,setCategory] = useState('-')
+    const category=props.value
     return (
       <Wrapper>
         <ul>
           {categoryList.map(c =>
             <li key={c}
                 className={category === c ? 'selected' : ''}
-                onClick={() => {setCategory(c);}}
+                onClick={() => {props.onChange(c);}}
             >{categoryMap[c]}
             </li>
           )}
