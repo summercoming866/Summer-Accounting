@@ -24,8 +24,9 @@ body{
     line-height: 1.2;
     background: #f5f5f5;
 }
-button{
+button,input{
     font-family: inherit;
+    font-size: inherit;
 }
 .icon{
     width:1em;

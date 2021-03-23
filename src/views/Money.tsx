@@ -24,6 +24,7 @@ function Money() {
     };
     return (
         <MyLayout>
+            {selected.note}
             {/* {selected.tags.join(',')}
             {selected.note}
             {selected.category} */}
