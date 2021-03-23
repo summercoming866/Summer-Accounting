@@ -5,6 +5,7 @@ import Money from './views/Money'
 import Statistics from './views/Statistics'
 import NoMatch from './views/NoMatch'
 import styled from 'styled-components'
+import Tag from './views/Tag'
 
 import {
   HashRouter as Router,
@@ -21,8 +22,11 @@ function App() {
     <AppWrapper>
       <Router>
         <Switch>
-          <Route path="/tags">
+          <Route exact path="/tags">
             <Tags />
+          </Route>
+          <Route exact path="/tags/:tag">
+            <Tag/>
           </Route>
           <Route path="/money">
             <Money />
