@@ -44,7 +44,6 @@ const Tag: React.FC = (props) => {
                     deleteTag(tag.id);
                 }}>删除标签</Button>
             </Center>
-
         </div>
     )
     return (
@@ -57,11 +56,6 @@ const Tag: React.FC = (props) => {
             {tag ? tagContent(tag) : <Center>
                 <Space/>
                 不存在</Center>}
-
-
-
-
-
         </Layout>
     );
 };
