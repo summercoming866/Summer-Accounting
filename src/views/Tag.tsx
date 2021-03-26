@@ -1,6 +1,6 @@
 import React from 'react';
 import useTags from './useTags';
-import { useParams } from 'react-router-dom';
+import { useParams,useHistory } from 'react-router-dom';
 import Layout from 'components/Layout';
 import Icon from 'components/Icon';
 import Button from 'components/Button';
@@ -37,7 +37,7 @@ const Tag: React.FC = (props) => {
                     }} />
             </InputWrapper>
             <Center>
-                <Space />
+                <Space /> 
                 <Space />
                 <Space />
                 <Button onClick={() => {
@@ -46,8 +46,9 @@ const Tag: React.FC = (props) => {
             </Center>
         </div>
     )
+    const history=useHistory()
     const onClickBack=()=>{
-        window.history.back()
+        history.goBack()
     }
     return (
         <Layout>
