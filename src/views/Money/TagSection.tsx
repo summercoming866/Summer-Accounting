@@ -1,5 +1,5 @@
 import React,{ useState } from 'react'
-import useTags from '../useTags'
+import useTags from '../../hooks/useTags'
 import styled from 'styled-components'
 import createId from 'lib/createId'
 
@@ -42,7 +42,7 @@ type Props={
 }
 const TagSection: React.FC<Props> = (props) => {
     // const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行'])
-    const {tags,setTags}=useTags()
+    const {tags,setTags,addTag}=useTags()
     // const [selectedTags, setSelectedTags] = useState<string[]>([])
     const selectedTagIds=props.value
     const onToggleTag = (tagId: number) => {
@@ -58,12 +58,7 @@ const TagSection: React.FC<Props> = (props) => {
             props.onChange([...selectedTagIds, tagId])
         }
     }
-    const onAddTag = () => {
-        const tagName = window.prompt('新标签的名称为')
-        if (tagName !== null) {
-            setTags([...tags, {id:  createId(), name: tagName}]);
-        }
-    }
+    
     const getClass = (tagId: number) => selectedTagIds.indexOf(tagId) >= 0 ? 'selected' : '';
     return (
         <Wrapper>
@@ -75,7 +70,7 @@ const TagSection: React.FC<Props> = (props) => {
                       >{tag.name}</li>
                 )}
             </ol>
-            <button onClick={onAddTag}>新增标签</button>
+            <button onClick={addTag}>新增标签</button>
         </Wrapper>
     )
 }
