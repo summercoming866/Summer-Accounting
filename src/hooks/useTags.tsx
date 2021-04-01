@@ -23,10 +23,10 @@ const useTags = () => {
         }
         setTags(localTags)
 
-    },[])//相当于afteramount，组件挂载执行
-    useUpdate(()=>{
-        window.localStorage.setItem('tags',JSON.stringify(tags))
-    },[tags])
+    }, [])//相当于afteramount，组件挂载执行
+    useUpdate(() => {
+        window.localStorage.setItem('tags', JSON.stringify(tags))
+    }, tags)
     const findTag = (id: number) => tags.filter(tag => tag.id === id)[0];
     const findTagIndex = (id: number) => {
         let result = -1;
@@ -68,7 +68,11 @@ const useTags = () => {
             setTags([...tags, { id: createId(), name: tagName }]);
         }
     }
-    return { tags, setTags, findTag, updateTag, findTagIndex, deleteTag, addTag };
+    const getName = (id: number) => {
+        const tag = tags.filter(t => t.id === id)[0];
+        return tag ? tag.name : '';
+    };
+    return { tags, getName, addTag, setTags, findTag, updateTag, findTagIndex, deleteTag };
 };
 
 export default useTags

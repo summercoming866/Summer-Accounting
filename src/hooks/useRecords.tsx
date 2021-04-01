@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useUpdate } from './useUpdate'
-type RecordItem = {
+export type RecordItem = {
     tagIds: number[],
     note: string,
     category: '+' | '-',
     amount: number,
-    createAt: string
+    createdAt: string
 }
 type newRecordItem = {
     tagIds: number[],
@@ -20,7 +20,7 @@ export const useRecords = () => {
     }, [])
     useUpdate(() => {
         window.localStorage.setItem('records', JSON.stringify(records))
-    }, [records])
+    }, records)
 
     const addRecord = (newRecord: newRecordItem) => {
         if (newRecord.amount <= 0) {
@@ -31,7 +31,7 @@ export const useRecords = () => {
             alert('请选择标签');
             return false;
         }
-        const record = { ...newRecord, createAt: (new Date().toISOString()) }
+        const record = { ...newRecord, createdAt: (new Date().toISOString()) }
         setRecords([...records, record])
         return true
     }
